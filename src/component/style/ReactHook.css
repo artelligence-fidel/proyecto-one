@@ -1,0 +1,11 @@
+
+.Container_Form{
+    width: 35%;
+    margin: auto;
+    border-style: ridge;
+    border-radius: 3px;
+}
+.Form_Style{
+    width: 70%;
+    margin: auto;
+}
