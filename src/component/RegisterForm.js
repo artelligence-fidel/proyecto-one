@@ -15,6 +15,9 @@ export default function RegisterForm() {
     const userList = JSON.parse(
       localStorage.getItem('localStorageUserList') || '[]'//compruevo si el localstore tine algun dato
     );
+      
+    let isRegistered = userList.filter(user => {user.username == data.username}) ;
+    if(isRegistered) throw Error('409 already registered') ;
       //aca intoduje el operador spread(...) para asi agregar mas elemantos al array, como son los obeto de tipo date
     userList.push({ ...data, userAddIt: new Date(),userLoginTime:new Date().toLocaleTimeString(), userLoginDate:new Date().toDateString()});
       
