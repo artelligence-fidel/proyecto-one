@@ -6,15 +6,23 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './style/ReactHook.css'
 
 export default function RegisterForm() {
+ 
   const {register,reset,  handleSubmit, formState:{errors}} =
   useForm();
+ 
+  const userList = JSON.parse(
+    localStorage.getItem('localStorageUserList') || '[]'//compruevo si el localstore tine algun dato
+  );
+  
     
+      
     
      //este funcion va a guardarme los datos en el localstorage      
     const  onSubmit = (data) =>{
-    const userList = JSON.parse(
-      localStorage.getItem('localStorageUserList') || '[]'//compruevo si el localstore tine algun dato
-    );
+      const user = userList.find(u => u.email === data.email);
+      if(user){alert("El usuario esta registrado")}
+
+
       //aca intoduje el operador spread(...) para asi agregar mas elemantos al array, como son los obeto de tipo date
     userList.push({ ...data, userAddIt: new Date(),userLoginTime:new Date().toLocaleTimeString(), userLoginDate:new Date().toDateString()});
       
@@ -28,13 +36,13 @@ export default function RegisterForm() {
      
     })
     }
- 
+   
   
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
     //el clasname es como react llama a los estyilos de css.
   <div className="Container_Form">
-    <form  className="from-group Form_Style " onSubmit={handleSubmit(onSubmit)/*llamando a la funcion onDubmit*/}>
+    <form  className="from-group Form_Style " onSubmit={handleSubmit(onSubmit)} >
       {/* register your input into the hook by invoking the "register" function */}
       <div>
          <label>First Name</label> 
@@ -72,8 +80,8 @@ export default function RegisterForm() {
       
       {/* include validation with required or other standard HTML validation rules */}
     <div className="mt-4">
-     <button  className="btn btn-primary " >Register</button>
-     
+    <button  className="btn btn-primary " >Register</button>
+    
     </div>
     </form>
     </div>  );
