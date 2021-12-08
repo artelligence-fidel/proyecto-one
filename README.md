@@ -68,9 +68,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-### PAPA, los componente  son los: login.js, ListOfUsers.js y ReactHook, que estan en la ruta: \src\component. y ### las paginas son Home.js, UserList que esta nan la ruta src\pages. Ahy  vas a ver donde esta el cdigo, y el App.js, que tiene el enrutador con todas las rutas.
-
-
-### el componente <React.Fracment>esto lo que haces es encapsular el codigo eliminando div innecesarios
