@@ -2,9 +2,10 @@ import React from "react";
 import moment from"moment";
 
 export default function UsoDeMoment(){
-    const m = moment().format('MMMM Do YYYY, h:mm:ss a')
-    
-    console.log(m)
+    const m = moment()
+    //const formato = 'DD MMM  YYYY  LTS';
+   
+    console.log(m.format('L  HH:mm:ss'))//esta la fecha dividida con "/" y la hora en militar
     return(
         <div><span>dfsf</span></div>
     );
