@@ -29,13 +29,13 @@ class ListOfUsers extends React.Component{
                                 <li key={user.email} className="list-group list-group-numbered" >
                                      <Accordion>
                                         <Accordion.Item eventKey="0" >
-                                            <Accordion.Header className=" $secondary"><span>{user.fullName}</span></Accordion.Header>
+                                            <Accordion.Header className=" $secondary"><span><strong>{user.fullName}</strong></span></Accordion.Header>
                                               <Accordion.Body>
                                                 <span>Elamil: {user.email}</span><br/>
                                                 <span>Job Title: {user.jobTitle}</span><br/>
-                                                <span>User Since: {user.userAddIt}</span><br/>
-                                                <span>Day of the last Loing: {user.userLoginDate}</span><br/>
-                                                <span>Timeof the last Loing: {user.userLoginTime}</span>
+                                                <span>User Since: {user.userAdded}</span><br/>
+                                                <span>Day of the last Loing: {user.userLoggedIn/*mirar para que no es quede basio al introducir el user por primera vers con el operador ternario*/}</span>
+                                                
                                               
                                              </Accordion.Body>
                                         </Accordion.Item>
