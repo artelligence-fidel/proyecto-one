@@ -11,16 +11,16 @@ export default function RegisterForm() {
   const {register,reset,  handleSubmit, formState:{errors}} =  useForm();
 
   const userList = JSON.parse(localStorage.getItem('localStorageUserList') || '[]') //compruevo si el localstore tine algun dat        //este funcion va a guardarme los datos en el localstorage      
-const  onSubmit = (data) =>{
+const  onSubmit = (data,) =>{
       const user = userList.find(u => u.email === data.email);
       if(user){alert("El usuario esta registrado")}
-
-
-      //aca intoduje el operador spread(...) para asi agregar mas elemantos al array, como son los obeto de tipo date
-    userList.push({ ...data, userAdded:time.format(' dddd DD MMMM YYYY   HH:mm:ss'), userLoggedIn:"Sesion no iniciada aun"});
-      
-    localStorage.setItem('localStorageUserList',JSON.stringify(userList));
-    //esta funcion lo que haces es limpiar los campos despues de enviarlos al localstorage
+        else{ //aca intoduje el operador spread(...) para asi agregar mas elemantos al array, como son los obeto de tipo date
+          userList.push({ ...data, userAdded:time.format(' dddd DD MMMM YYYY   HH:mm:ss'), userLoggedIn:"Sesion no iniciada aun"});
+            
+          localStorage.setItem('localStorageUserList',JSON.stringify(userList));
+          //esta funcion lo que haces es limpiar los campos despues de enviarlos al localstorage}
+        }
+     
     reset({ 
       fullName: '',
       email: '',
