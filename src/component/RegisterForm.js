@@ -4,24 +4,16 @@ import React from "react";
 import { useForm } from "react-hook-form"; //libreria para trabajar con los formularios
 import 'bootstrap/dist/css/bootstrap.css'
 import './style/ReactHook.css'
-//import CreateUser from '../servises/CreateUser'
-import moment from "moment";
+import CreateUser from '../servises/CreateUser'
+import moment, { localeData } from "moment";
 export default function RegisterForm() {
 //const time = moment()
   const {register,reset, handleSubmit, formState:{errors}} =  useForm();
 
 
 const  onSubmit =(data)=>{
-    var time = moment();
-    var  userList = JSON.parse(localStorage.getItem('localStorageUserList') || '[]') //compruevo si el localstore tine algun dat        //este funcion va a guardarme los datos en el localstorage      
-    var  user = userList.find(u => u.email === data.email);
-    if(user){alert("El usuario esta registrado")}
-      else{
-          //aca intoduje el operador spread(...) para asi agregar mas elemantos al array, como son los obeto de tipo date
-        userList.push({ ...data, userAdded:time.format(' dddd DD MMMM YYYY   HH:mm:ss'), userLoggedIn:"Sesion no iniciada aun"});
-        localStorage.setItem('localStorageUserList',JSON.stringify(userList));
-        //esta funcion lo que haces es limpiar los campos despues de enviarlos al localstorage
-      }
+  CreateUser(data)//*ejemplo de como llamo a una funcion externa dentro de un componente funcional, el cual no se puede llamr fuena del metodo onSubmit 
+      
       reset({ 
         fullName: '',
         email: '',
