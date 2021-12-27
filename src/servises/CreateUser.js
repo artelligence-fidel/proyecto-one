@@ -13,8 +13,6 @@ export default function CreateUser(data){
         localStorage.setItem('localStorageUserList',JSON.stringify(userList));
         //esta funcion lo que haces es limpiar los campos despues de enviarlos al localstorage
       }
-         
-    
-    
-    
+   
     }
+    

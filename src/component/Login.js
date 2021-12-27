@@ -15,7 +15,7 @@ export default function Login(){
   
   const history = useHistory();
   
-  const m = moment();
+  const date = moment();
 
   //esta funcion es para regresar a la url que quiero que regrese
  
@@ -23,10 +23,6 @@ export default function Login(){
     history.push("/list-of-users");
   }
   
-    
-
-  
-
     
       ///funcion (onSubmit) es para comprobar que el email y el password que se  esta  entrado por el form , este dentro de la lista de usuarios 
       // en el caso de "data", que puede ser cualquie nombre, es la variable que tiene los valores de los imput, que au ves se obtiene al llamar la variable registesr 
@@ -36,7 +32,7 @@ export default function Login(){
         if(user) {
           //y act acutalisa la hora de inicio de sesion y el dia de la mismay los guarda 
               
-              user.userLoggedIn = m.format('dddd DD MMMM YYYY   HH:mm:ss')
+              user.userLoggedIn = date.format('dddd DD MMMM YYYY   HH:mm:ss')
               localStorage.setItem('localStorageUserList',JSON.stringify(userList))
                       
               return handleClick();//en caso que se cumple la condicion entonses me redirecciona para la lita de usuarios
