@@ -2,7 +2,7 @@ import React from "react";
 import Accordion from 'react-bootstrap/Accordion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.css'
-
+import DeleteUser from "../servises/DeleteUser";
 
 class ListOfUsers extends React.Component{
     
@@ -14,15 +14,14 @@ class ListOfUsers extends React.Component{
         <React.Fragment>
             
            <div>
-               <h1>Us er List</h1>
+               <h1>User List</h1>
                <div>
                    
                    
                   
                     {
                        
-                       this.listtoshow =JSON.parse(
-                        localStorage.getItem('localStorageUserList') || '[]'),
+                       this.listtoshow =JSON.parse(localStorage.getItem('localStorageUserList') || '[]'),
                         this.listtoshow.map((user)=>{
                             return(
                                
@@ -34,12 +33,11 @@ class ListOfUsers extends React.Component{
                                                 <span>Elamil: {user.email}</span><br/>
                                                 <span>Job Title: {user.jobTitle}</span><br/>
                                                 <span>User Since: {user.userAdded}</span><br/>
-                                                <span>Day of the last Loing: {user.userLoggedIn/*mirar para que no es quede basio al introducir el user por primera vers con el operador ternario*/}</span>
-                                                
-                                              
+                                                <span>Day of the last Loing: {user.userLoggedIn/*mirar para que no es quede basio al introducir el user por primera vers con el operador ternario*/}</span><br/>
+                                                <button className="btn  btn-danger mt-3" onClick={DeleteUser(user.fullName)}>Deleter</button>                                        
                                              </Accordion.Body>
                                         </Accordion.Item>
-                                        
+                                       
                                     </Accordion>
                     
   

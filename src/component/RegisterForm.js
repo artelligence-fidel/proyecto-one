@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form"; //libreria para trabajar con los form
 import 'bootstrap/dist/css/bootstrap.css'
 import './style/ReactHook.css'
 import CreateUser from '../servises/CreateUser'
-import moment, { localeData } from "moment";
+
 export default function RegisterForm() {
 //const time = moment()
   const {register,reset, handleSubmit, formState:{errors}} =  useForm();
